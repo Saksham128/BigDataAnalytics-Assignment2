@@ -4,15 +4,15 @@ Using *Hospital database* which contains the following 3 tables:
 
 1. doctorDetails
 
-- *Attributes:* doctor_id, doctor_name, gender, specialization, phone_no
+- *Stores doctor information, including unique DOCTORID, DOCTOR_NAME, GENDER, SPECIALIZATION, and optional PHONE_NO.*
 
 2. patientDetails
 
-- *Attributes:* patient_id, patient_name, age, gender, doctor_id, diagnosed_with, room_ward_no,  admit_date, discharge_date, health_card, address, phone_no
+- *Holds patient details such as unique PATIENTID, PATIENT_NAME, AGE, GENDER, linked DOCTORID, DIAGNOSED_WITH condition, optional ROOM_WARD_NO, admission and discharge dates, health card details, ADDRESS, and optional PHONE_NO. The DOCTORID is a foreign key that links to DOCTORDETAILS and is set to NULL if the doctor is removed.*
 
 3. treatmentDetails
 
-- *Attributes:* treatment_id, patient_id, doctor_id, treatment_date, medication, treatment_notes, bill_amt
+- *Contains treatment records with unique TREATMENTID, linked PATIENTID and DOCTORID, TREATMENT_DATE, MEDICATION, TREATMENT_NOTES, and BILL_AMT. PATIENTID references PATIENTDETAILS and cascades on delete, while DOCTORID references DOCTORDETAILS and is set to NULL if the doctor is removed.*
 
 ## Basic SQL Queries
 
