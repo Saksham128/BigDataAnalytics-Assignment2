@@ -1,0 +1,21 @@
+treatmentID,patientID,doctorID,treatment_date,medication,treatment_notes,bill_amt
+T001,P004,D001,2024-07-16,Metformin,Patient advised to avoid strenuous activity,3760.49
+T002,P011,D003,2024-02-12,Ibuprofen,Physical therapy recommended,3700.18
+T003,P017,D006,2024-04-13,Paracetamol,Blood pressure monitored,2187.0
+T004,P002,D006,2024-02-22,Ibuprofen,Symptoms improving,1247.32
+T005,P003,D005,2024-02-05,Ibuprofen,Scheduled follow-up in 1 week,1914.76
+T006,P006,D003,2024-08-15,Metformin,Scheduled follow-up in 1 week,4896.48
+T007,P008,D003,2024-02-13,Paracetamol,Vitals stable,2348.06
+T008,P015,D003,2024-01-16,Metformin,Patient prescribed antibiotics,3281.3
+T009,P017,D006,2024-01-20,Ibuprofen,Symptoms improving,1389.48
+T010,P005,D004,2024-07-22,Paracetamol,Follow-up test scheduled,4968.23
+T011,P014,D006,2024-05-29,Amoxicillin,Vitals stable,1925.95
+T012,P011,D003,2024-07-03,Cetirizine,Patient prescribed antibiotics,2156.21
+T013,P014,D006,2024-04-14,Amoxicillin,Physical therapy recommended,3798.0
+T014,P005,D004,2024-02-22,Metformin,Patient prescribed antibiotics,4660.02
+T015,P017,D006,2024-03-16,Cetirizine,Patient advised hydration,4786.12
+T016,P009,D006,2024-08-31,Cetirizine,Referred to specialist,1723.77
+T017,P015,D003,2024-08-10,Metformin,Routine medication continued,3510.81
+T018,P002,D006,2024-03-24,Ibuprofen,Patient given IV fluids,1993.23
+T019,P005,D004,2024-06-25,Paracetamol,Vitals stable,2949.83
+T020,P004,D001,2024-04-22,Metformin,Follow-up test scheduled,562.12
