@@ -56,24 +56,30 @@ CREATE TABLE TREATMENTDETAILS (
 	FOREIGN KEY (DOCTORID) REFERENCES DOCTORDETAILS (DOCTORID) ON DELETE SET NULL
 );
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos/">
 
 ### 2. SELECT
-- Retrieve all patients' details:
+- Retrieve all details of each table:
 ```
 SELECT * FROM PATIENTDETAILS
 SELECT * FROM DOCTORDETAILS
 SELECT * FROM TREATMENTDETAILS
 ```
+<img title="Patient Table" alt="Patient Table" src="/outputPhotos/select1.1.png">
+<img title="Doctor Table" alt="Doctor Table" src="/outputPhotos/select1.2.png">
+<img title="Treatment Table" alt="Treatment Table" src="/outputPhotos/select1.3.png">
 
 - Get names and ages of all patients who are older than 50:
 ```
 SELECT patient_name, age FROM patientDetails WHERE age > 50;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos/select2.png">
 
 - List all male doctors specializing in Cardiology:
 ```
 SELECT doctor_name FROM doctorDetails WHERE gender = 'M' AND specialization = 'Cardiology';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos/select3.png">
 
 ### 3. INSERT
 
@@ -82,12 +88,14 @@ SELECT doctor_name FROM doctorDetails WHERE gender = 'M' AND specialization = 'C
 INSERT INTO patientDetails (patientID, patient_name, age, gender, doctorID, diagnosed_with, admit_date, phone_no)
 VALUES ('P021', 'Suresh Kumar', 60, 'M', 'D001', 'Hypertension', '2023-11-15', '9876543210');
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
 
 - Add a new doctor record:
 ```
 INSERT INTO doctorDetails (doctorID, doctor_name, gender, specialization, phone_no)
 VALUES ('D007', 'Dr. Kavita Singh', 'F', 'Endocrinology', '9123456780');
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
 
 ### 4. ALTER
 
@@ -95,54 +103,79 @@ VALUES ('D007', 'Dr. Kavita Singh', 'F', 'Endocrinology', '9123456780');
 ```
 ALTER TABLE patientDetails ADD COLUMN emergency_contact VARCHAR(15);
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ```
 ALTER TABLE doctorDetails ALTER COLUMN phone_no TYPE VARCHAR(20);
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 5. DELETE
 
 - Remove a patient record by patient ID:
 ```
 DELETE FROM patientDetails WHERE patientID = 'P021';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 6. UPDATE
 
 - Update phone number for a specific patient:
 ```
 UPDATE patientDetails SET phone_no = '5555555555' WHERE patientID = 'P001';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 7. AND/OR
 ```
 SELECT * FROM patientDetails WHERE age > 30 AND diagnosed_with = 'Diabetes';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ```
 SELECT doctor_name FROM doctorDetails WHERE specialization = 'Pediatrics' OR specialization = 'Dermatology';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ```
 SELECT * FROM patientDetails 
 WHERE (diagnosed_with = 'Hypertension' OR age > 60) 
 AND admit_date >= CURRENT_DATE - INTERVAL '1 month';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 8. WHERE
 ```
 SELECT patient_name, age FROM patientDetails WHERE age > 50;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ```
 SELECT doctor_name FROM doctorDetails WHERE gender = 'M' AND specialization = 'Cardiology';
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 9. ORDER BY
 ```
 SELECT patient_name, age, diagnosed_with FROM patientDetails ORDER BY patient_name ASC;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ```
 SELECT patientID, treatment_date, bill_amt FROM treatmentDetails ORDER BY treatment_date DESC;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 10. LIMIT
 ```
 SELECT * FROM patientDetails LIMIT 10;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ```
 SELECT treatmentID, patientID, bill_amt FROM treatmentDetails ORDER BY bill_amt DESC LIMIT 5;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
 
 ## SQL Joins
 
@@ -152,18 +185,25 @@ SELECT p.patient_name, t.treatment_date, d.doctor_name, t.bill_amt FROM patientD
 INNER JOIN treatmentDetails t ON p.patientID = t.patientID 
 INNER JOIN doctorDetails d ON t.doctorID = d.doctorID;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 2. LEFT (OUTER) JOIN
 ```
 SELECT p.patient_name, t.treatment_date, t.bill_amt FROM patientDetails p 
 LEFT JOIN treatmentDetails t ON p.patientID = t.patientID;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 3. RIGHT (OUTER) JOIN
 ```
 SELECT t.treatment_date, t.bill_amt, p.patient_name FROM treatmentDetails t 
 RIGHT JOIN patientDetails p ON t.patientID = p.patientID;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
+
 ### 4.FULL (OUTER) JOIN
 ```
 SELECT p.patient_name, t.treatment_date, t.bill_amt FROM patientDetails p 
 FULL OUTER JOIN treatmentDetails t ON p.patientID = t.patientID;
 ```
+<img title="a title" alt="Alt text" src="/outputPhotos">
