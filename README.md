@@ -17,6 +17,8 @@ Using *Hospital database* which contains the following 3 tables:
 ## Basic SQL Queries
 
 ### 1. CREATE
+
+- Create a tables
 ```
 CREATE TABLE DOCTORDETAILS (
 	DOCTORID CHAR(9) PRIMARY KEY UNIQUE NOT NULL,
@@ -56,7 +58,7 @@ CREATE TABLE TREATMENTDETAILS (
 	FOREIGN KEY (DOCTORID) REFERENCES DOCTORDETAILS (DOCTORID) ON DELETE SET NULL
 );
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos/">
+<img title="a title" alt="Alt text" src="/outputPhotos/create.png">
 
 ### 2. SELECT
 - Retrieve all details of each table:
@@ -88,27 +90,28 @@ SELECT doctor_name FROM doctorDetails WHERE gender = 'M' AND specialization = 'C
 INSERT INTO patientDetails (patientID, patient_name, age, gender, doctorID, diagnosed_with, admit_date, phone_no)
 VALUES ('P021', 'Suresh Kumar', 60, 'M', 'D001', 'Hypertension', '2023-11-15', '9876543210');
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/insert1.1.png">
 
 - Add a new doctor record:
 ```
 INSERT INTO doctorDetails (doctorID, doctor_name, gender, specialization, phone_no)
 VALUES ('D007', 'Dr. Kavita Singh', 'F', 'Endocrinology', '9123456780');
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/insert1.2.png">
 
 ### 4. ALTER
 
-- 
+- Add a column for storing emergency contact numbers:
 ```
 ALTER TABLE patientDetails ADD COLUMN emergency_contact VARCHAR(15);
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/alter1.1.png">
 
+- Change the data type of the phone number to accommodate international formats:
 ```
 ALTER TABLE doctorDetails ALTER COLUMN phone_no TYPE VARCHAR(20);
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/alter1.2.png">
 
 ### 5. DELETE
 
@@ -116,66 +119,88 @@ ALTER TABLE doctorDetails ALTER COLUMN phone_no TYPE VARCHAR(20);
 ```
 DELETE FROM patientDetails WHERE patientID = 'P021';
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/delete.png">
 
-### 6. UPDATE
+### 6. DROP
+
+- Delete the treatmentDetails table from your hospital database.
+```
+DROP TABLE treatmentDetails;
+```
+<img title="a title" alt="Alt text" src="/outputPhotos/drop1.1.png">
+
+### 7. UPDATE
 
 - Update phone number for a specific patient:
 ```
 UPDATE patientDetails SET phone_no = '5555555555' WHERE patientID = 'P001';
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/update1.1.png">
 
-### 7. AND/OR
+### 8. AND/OR
+
+- Get details of patients who are older than 30 and diagnosed with 'Diabetes':
 ```
 SELECT * FROM patientDetails WHERE age > 30 AND diagnosed_with = 'Diabetes';
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/and.png">
 
+- List doctors who are either specialized in 'Pediatrics' or 'Dermatology':
 ```
 SELECT doctor_name FROM doctorDetails WHERE specialization = 'Pediatrics' OR specialization = 'Dermatology';
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/or.png">
 
+- Get patients who are either diagnosed with 'Hypertension' or older than 60, and admitted in the last month:
 ```
 SELECT * FROM patientDetails 
 WHERE (diagnosed_with = 'Hypertension' OR age > 60) 
 AND admit_date >= CURRENT_DATE - INTERVAL '1 month';
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/andor.png">
 
-### 8. WHERE
-```
-SELECT patient_name, age FROM patientDetails WHERE age > 50;
-```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+### 9. WHERE
 
+- Get details of patients diagnosed with 'Hypertension':
 ```
-SELECT doctor_name FROM doctorDetails WHERE gender = 'M' AND specialization = 'Cardiology';
+SELECT * FROM patientDetails WHERE diagnosed_with = 'Hypertension';
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/where2.png">
 
-### 9. ORDER BY
+- Select treatment records where the bill amount is greater than 2000:
+```
+SELECT * FROM treatmentDetails WHERE bill_amt > 2000;
+```
+<img title="a title" alt="Alt text" src="/outputPhotos/where.png">
+
+### 10. ORDER BY
+
+- List all patients in alphabetical order by name:
 ```
 SELECT patient_name, age, diagnosed_with FROM patientDetails ORDER BY patient_name ASC;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/order1.1.png">
 
+- Display treatments by most recent treatment date:
 ```
 SELECT patientID, treatment_date, bill_amt FROM treatmentDetails ORDER BY treatment_date DESC;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/order1.2.png">
 
-### 10. LIMIT
+### 11. LIMIT
+
+- Retrieve the first 10 patients:
 ```
 SELECT * FROM patientDetails LIMIT 10;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/limit1.1.png">
 
+- Get the top 5 most expensive treatments:
 ```
 SELECT treatmentID, patientID, bill_amt FROM treatmentDetails ORDER BY bill_amt DESC LIMIT 5;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/limit1.2.png">
+
 
 ## SQL Joins
 
