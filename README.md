@@ -210,25 +210,25 @@ SELECT p.patient_name, t.treatment_date, d.doctor_name, t.bill_amt FROM patientD
 INNER JOIN treatmentDetails t ON p.patientID = t.patientID 
 INNER JOIN doctorDetails d ON t.doctorID = d.doctorID;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/inner.png">
 
 ### 2. LEFT (OUTER) JOIN
 ```
 SELECT p.patient_name, t.treatment_date, t.bill_amt FROM patientDetails p 
 LEFT JOIN treatmentDetails t ON p.patientID = t.patientID;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/left.png">
 
 ### 3. RIGHT (OUTER) JOIN
 ```
 SELECT t.treatment_date, t.bill_amt, p.patient_name FROM treatmentDetails t 
 RIGHT JOIN patientDetails p ON t.patientID = p.patientID;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotos/right.png">
 
 ### 4.FULL (OUTER) JOIN
 ```
 SELECT p.patient_name, t.treatment_date, t.bill_amt FROM patientDetails p 
 FULL OUTER JOIN treatmentDetails t ON p.patientID = t.patientID;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotos">
+<img title="a title" alt="Alt text" src="/outputPhotosfull.png">
