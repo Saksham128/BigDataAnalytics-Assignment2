@@ -231,4 +231,4 @@ RIGHT JOIN patientDetails p ON t.patientID = p.patientID;
 SELECT p.patient_name, t.treatment_date, t.bill_amt FROM patientDetails p 
 FULL OUTER JOIN treatmentDetails t ON p.patientID = t.patientID;
 ```
-<img title="a title" alt="Alt text" src="/outputPhotosfull.png">
+<img title="a title" alt="Alt text" src="/outputPhotos/full.png">
