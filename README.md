@@ -16,7 +16,7 @@ Using *Hospital database* which contains the following 3 tables:
 
 ## Basic SQL Queries
 
-### 1. CREATE
+Alt-1. CREATE
 The CREATE command defines new database objects like tables and indexes. It establishes the structure, including column types and constraints.
 
 - Create a tables
